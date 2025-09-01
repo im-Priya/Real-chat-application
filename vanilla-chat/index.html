@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Realtime Chat</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg"></div>
+    <div class="app">
+      <header class="app__header">
+        <div class="app__brand">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C6.477 2 2 5.589 2 10.02c0 2.483 1.41 4.706 3.62 6.182-.077.906-.41 2.38-1.48 3.91 0 0 2.133-.063 4.023-1.317.99.27 2.05.418 3.158.418 5.523 0 10-3.589 10-8.02C21.32 5.588 17.523 2 12 2z" fill="currentColor"/>
+          </svg>
+          <span>Realtime Chat</span>
+        </div>
+        <div class="app__user">
+          <span id="usernameDisplay"></span>
+          <button id="changeNameBtn" class="btn btn--ghost">Change</button>
+        </div>
+      </header>
+
+      <main class="chat">
+        <ul id="messages" class="chat__messages" aria-live="polite" aria-relevant="additions"></ul>
+      </main>
+
+      <form id="messageForm" class="composer" autocomplete="off">
+        <textarea id="messageInput" class="composer__input" placeholder="Type a message..." maxlength="500" rows="1"></textarea>
+        <button class="btn" type="submit" aria-label="Send">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2 .01 7z" fill="currentColor"/>
+          </svg>
+        </button>
+      </form>
+    </div>
+
+    <dialog id="nameDialog" class="dialog">
+      <form method="dialog" class="dialog__card">
+        <h2>Choose a display name</h2>
+        <input id="nameInput" class="input" type="text" placeholder="e.g. Alex" maxlength="20" />
+        <div class="dialog__actions">
+          <button value="cancel" class="btn btn--ghost">Cancel</button>
+          <button id="saveNameBtn" value="default" class="btn">Save</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script type="module" src="firebase.js"></script>
+    <script type="module" src="app.js"></script>
+  </body>
+  </html>
+
+
+
